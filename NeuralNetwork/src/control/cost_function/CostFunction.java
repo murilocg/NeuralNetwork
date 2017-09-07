@@ -2,7 +2,6 @@ package control.cost_function;
 
 import org.jblas.DoubleMatrix;
 
-import entity.util.Theta;
 import entity.util.cost_function.PartialDerivation;
 import entity.util.cost_function.Regularization;
 
@@ -16,11 +15,11 @@ import entity.util.cost_function.Regularization;
  */
 public class CostFunction {
 
-	public static double cost(DoubleMatrix X, DoubleMatrix Y, Theta theta, double lambda) {
-		
+	public static double cost(DoubleMatrix X, DoubleMatrix Y, DoubleMatrix[] theta, double lambda) {
 		int m = Y.length;
-		double partialDerivation = PartialDerivation.derive(X, Y, theta.getTotalNumberClasses(), m);
-		double reg = Regularization.reg(theta.getUnitsInLayer(), theta.asArray(), lambda, m);
+		int classes = theta[theta.length - 1].rows - 1;
+		double partialDerivation = PartialDerivation.derive(X, Y, classes, m);
+		double reg = Regularization.reg(theta, lambda, m);
 		return partialDerivation + reg;
 	}
 }
