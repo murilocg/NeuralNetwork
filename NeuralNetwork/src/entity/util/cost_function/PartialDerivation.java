@@ -2,7 +2,7 @@ package entity.util.cost_function;
 
 import org.jblas.DoubleMatrix;
 
-import entity.util.Sigmoid;
+import entity.util.activation_function.Sigmoid;
 
 /*
  * This class has the responsibility of calculate the following equation: 

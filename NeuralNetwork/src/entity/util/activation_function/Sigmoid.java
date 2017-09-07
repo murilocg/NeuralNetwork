@@ -1,4 +1,4 @@
-package entity.util;
+package entity.util.activation_function;
 
 import org.jblas.DoubleMatrix;
 import org.jblas.MatrixFunctions;

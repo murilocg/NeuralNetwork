@@ -10,11 +10,11 @@ import org.jblas.DoubleMatrix;
  */
 public class Regularization {
 
-	public static double reg(int[] unitsInLayer, DoubleMatrix[] theta, double lambda, int m) {
+	public static double reg(DoubleMatrix[] theta, double lambda, int m) {
 		double sum = 0;
-		int L = unitsInLayer.length;
+		int L = theta.length;
 		for (int l = 0; l < L - 1; l++) {
-			int sl = unitsInLayer[l];
+			int sl = theta[l].rows;
 			DoubleMatrix iTheta = theta[l];
 			for (int i = 0; i < sl; i++) {
 
